@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`QuietButton renders 1`] = `
+<QuietButton__StyledQuietButton>
+  <Dependent />
+  Words
+</QuietButton__StyledQuietButton>
+`;
