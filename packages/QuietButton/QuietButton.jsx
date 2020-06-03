@@ -6,26 +6,17 @@ import PropTypes from 'prop-types'
 
 const baseButton = {
   boxSizing: 'border-box',
-  margin: '3px',
-  padding: '0 2rem',
+  margin: '2px 0',
+  padding: '0',
   cursor: 'pointer',
   background: '#FFFFFF',
   transition: 'all 0.2s ease-in-out',
-  display: 'flex',
-  flexDirection: 'row',
-  justifyContent: 'space-between',
   minWidth: '44px',
+  height: '28px',
   border: '1px solid #71757B',
   position: 'relative',
   borderRadius: '3px',
   color: '#2A2C2E',
-
-  '@media (prefers-reduced-motion: reduce)': {
-    transition: 'none !important',
-  },
-}
-
-const StyledQuietButton = styled.button(baseButton, small, borders.rounded, {
   '&:hover': {
     border: '3px solid #71757B',
     midWidth: '72px',
@@ -36,17 +27,25 @@ const StyledQuietButton = styled.button(baseButton, small, borders.rounded, {
   },
   '&:focus': {
     background: '#FFFFFF',
-    border: '2px solid red',
-    outline: '3px solid blue',
-    '&:before': {
-      position: 'absolute',
-      content: '',
-      zIndex: -1,
-      border: '3px solid green',
-    },
+    border: '2px solid white',
+    boxShadow: '0 0 0 3px #71757B, 0 0 0 1px #54595F inset',
+    outline: 'none !important',
   },
-})
+  '@media (prefers-reduced-motion: reduce)': {
+    transition: 'none !important',
+  },
+}
 
+const wrapper = {
+  margin: '3px 16px 5px 16px',
+  display: 'flex',
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+}
+
+const StyledQuietButton = styled.button(baseButton, small, borders.rounded)
+
+const ButtonWrapper = styled.div(wrapper)
 /**
  * The quiet button is used for optional actions, and only comes in one variant and size
  * @version ./package.json
@@ -54,7 +53,11 @@ const StyledQuietButton = styled.button(baseButton, small, borders.rounded, {
 
 const QuietButton = props => {
   // const noDisabled = preventDisabling()
-  return <StyledQuietButton>{props.children}</StyledQuietButton>
+  return (
+    <StyledQuietButton>
+      <ButtonWrapper>{props.children}</ButtonWrapper>
+    </StyledQuietButton>
+  )
 }
 // check with Jesse - 'we will not be programmatically enforcing child types'
 // so do we need this propTypes object?
