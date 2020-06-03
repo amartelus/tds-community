@@ -41,47 +41,57 @@ const wrapper = {
   display: 'flex',
   flexDirection: 'row',
   justifyContent: 'space-between',
+  '& > *': {
+    color: 'blue',
+  },
+  '&:last-child': {
+    color: 'red',
+  },
 }
 
 const StyledQuietButton = styled.button(baseButton, small, borders.rounded)
 
 const ButtonWrapper = styled.div(wrapper)
+
+const SpaceDiv = styled.div`
+  min-width: 10px;
+`
 /**
  * The quiet button is used for optional actions, and only comes in one variant and size
  * @version ./package.json
  */
 
-const QuietButton = props => {
-  // const noDisabled = preventDisabling()
+const QuietButton = ({ children }) => {
+  const insertSpacesIntoArray = (arr, value) => {
+    return arr.reduce((result, element, index, array) => {
+      result.push(element)
+
+      if (index < array.length - 1) {
+        result.push(value)
+      }
+
+      return result
+    }, [])
+  }
+
   return (
     <StyledQuietButton>
-      <ButtonWrapper>{props.children}</ButtonWrapper>
+      <ButtonWrapper>
+        {Array.isArray(children) ? insertSpacesIntoArray(children, <SpaceDiv />) : children}
+      </ButtonWrapper>
     </StyledQuietButton>
   )
 }
-// check with Jesse - 'we will not be programmatically enforcing child types'
-// so do we need this propTypes object?
-// how to include interactive icons on this list?
-//
+
 QuietButton.propTypes = {
   /**
-   * Button text.
+   * Button children.
    */
   // this is allowing children of any type essentially
-  children: PropTypes.node.isRequired,
+  // children: PropTypes.node.isRequired, // look up way to specifiy min length of 1. we don't check type, just length
+  // children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.element), PropTypes.element])
+  //   .isRequired,
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
 }
+
 export default QuietButton
-
-// Focus: solid white fill #FFFFFF
-
-// first border: 2px white #FFFFFF (inside)
-
-// second border: 3px  Raven grey #71757B (outside)
-
-// third border: 3px Shuttle grey #54595F(inside)
-
-// children: or([
-//   PropTypes.string,
-//   componentWithName('A11yContent'),
-//   componentWithName('InteractiveIcon'),
-// ]).isRequired

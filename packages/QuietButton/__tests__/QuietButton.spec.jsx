@@ -1,12 +1,12 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { shallow, mount } from 'enzyme'
 import 'jest-styled-components'
 // import { Print } from '@tds/core-interactive-icon'
 import QuietButton from '../QuietButton'
 
 describe('QuietButton', () => {
   const doShallow = (props = {}) => shallow(<QuietButton {...props}>Words</QuietButton>)
-  // const doMount = (props = {}) => mount(<QuietButton {...props}>Words</QuietButton>)
+  const doMount = (props = {}) => mount(<QuietButton {...props}>Words</QuietButton>)
 
   it('renders', () => {
     const quietButton = doShallow()
@@ -14,30 +14,30 @@ describe('QuietButton', () => {
     expect(quietButton).toMatchSnapshot()
   })
 
-  // // from Modal testing file, why mount vs shallow not completely sure
-  // it.skip('renders', () => {
-  //   const quietButton = doMount()
+  // from Modal testing file, why mount vs shallow not completely sure
+  it('renders', () => {
+    const quietButton = doMount()
 
-  //   expect(quietButton).toMatchSnapshot()
-  // })
+    expect(quietButton).toMatchSnapshot()
+  })
 
-  // it('does other things', () => {
-  //   const quietButton = doMount()
+  it('does other things', () => {
+    const quietButton = doMount()
 
-  //   expect(quietButton).toExist()
-  // })
+    expect(quietButton).toExist()
+  })
 
-  // it.skip('does not allow custom CSS', () => {
-  //   const quietButton = doShallow({
-  //     className: 'my-custom-class',
-  //     style: { color: 'hotpink' },
-  //   })
+  it('does not allow custom CSS', () => {
+    const quietButton = doShallow({
+      className: 'my-custom-class',
+      style: { color: 'hotpink' },
+    })
 
-  //   expect(quietButton).not.toHaveProp('className', 'my-custom-class')
-  //   expect(quietButton).not.toHaveProp('style')
-  // })
-  // // can we have more than one snapshot?
-  // it.skip('renders interactive icons', () => {
+    expect(quietButton).not.toHaveProp('className', 'my-custom-class')
+    expect(quietButton).not.toHaveProp('style')
+  })
+  // can we have more than one snapshot?
+  // it('renders interactive icons', () => {
   //   const quietButton = mount(
   //     <QuietButton>
   //       <Print />
@@ -45,10 +45,10 @@ describe('QuietButton', () => {
   //     </QuietButton>
   //   )
 
-  //   expect(quietButton).toHaveProp('className', 'my-custom-class')
-  //   expect(quietButton).toHaveProp('style')
-  // })
+  // expect(quietButton).toHaveProp('className', 'my-custom-class')
+  // expect(quietButton).toHaveProp('style')
 })
+// })
 
 // mounting: Full DOM rendering including child components
 // shallow: Renders only the single component, not including its children. This is useful to isolate the component for pure unit testing.

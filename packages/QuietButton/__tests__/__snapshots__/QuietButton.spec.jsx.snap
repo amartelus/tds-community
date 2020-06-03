@@ -1,28 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`QuietButton renders 1`] = `<QuietButton__StyledQuietButton />`;
+exports[`QuietButton renders 1`] = `
+<QuietButton__StyledQuietButton>
+  <QuietButton__ButtonWrapper>
+    Words
+  </QuietButton__ButtonWrapper>
+</QuietButton__StyledQuietButton>
+`;
 
 exports[`QuietButton renders 2`] = `
 .c0 {
   box-sizing: border-box;
-  margin: 3px;
-  padding: 0 2rem;
+  margin: 2px 0;
+  padding: 0;
   cursor: pointer;
   background: #FFFFFF;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
   min-width: 44px;
+  height: 28px;
   border: 1px solid #71757B;
   position: relative;
   border-radius: 3px;
@@ -49,14 +45,32 @@ exports[`QuietButton renders 2`] = `
 
 .c0:focus {
   background: #FFFFFF;
-  border: 2px solid red;
-  outline: 3px solid blue;
+  border: 2px solid white;
+  box-shadow: 0 0 0 3px #71757B,0 0 0 1px #54595F inset;
+  outline: none !important;
 }
 
-.c0:focus:before {
-  position: absolute;
-  z-index: -1;
-  border: 3px solid green;
+.c1 {
+  margin: 3px 16px 5px 16px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c1 > * {
+  color: blue;
+}
+
+.c1:last-child {
+  color: red;
 }
 
 @media (prefers-reduced-motion:reduce) {
@@ -79,27 +93,17 @@ exports[`QuietButton renders 2`] = `
             "lastClassName": "c0",
             "rules": Array [
               "box-sizing: border-box;",
-              "margin: 3px;",
-              "padding: 0 2rem;",
+              "margin: 2px 0;",
+              "padding: 0;",
               "cursor: pointer;",
               "background: #FFFFFF;",
               "transition: all 0.2s ease-in-out;",
-              "display: flex;",
-              "flex-direction: row;",
-              "justify-content: space-between;",
               "min-width: 44px;",
+              "height: 28px;",
               "border: 1px solid #71757B;",
               "position: relative;",
               "border-radius: 3px;",
               "color: #2A2C2E;",
-              "@media (prefers-reduced-motion: reduce) {",
-              "transition: none !important;",
-              "}",
-              "word-wrap: break-word;",
-              "font-size: 0.875rem;",
-              "letter-spacing: -0.6px;",
-              "line-height: 1.42857;",
-              "border-radius: 4px;",
               "&:hover {",
               "border: 3px solid #71757B;",
               "mid-width: 72px;",
@@ -110,14 +114,18 @@ exports[`QuietButton renders 2`] = `
               "}",
               "&:focus {",
               "background: #FFFFFF;",
-              "border: 2px solid red;",
-              "outline: 3px solid blue;",
-              "&:before {",
-              "position: absolute;",
-              "z-index: -1;",
-              "border: 3px solid green;",
+              "border: 2px solid white;",
+              "box-shadow: 0 0 0 3px #71757B, 0 0 0 1px #54595F inset;",
+              "outline: none !important;",
               "}",
+              "@media (prefers-reduced-motion: reduce) {",
+              "transition: none !important;",
               "}",
+              "word-wrap: break-word;",
+              "font-size: 0.875rem;",
+              "letter-spacing: -0.6px;",
+              "line-height: 1.42857;",
+              "border-radius: 4px;",
             ],
           },
           "displayName": "QuietButton__StyledQuietButton",
@@ -134,7 +142,50 @@ exports[`QuietButton renders 2`] = `
     >
       <button
         className="c0"
-      />
+      >
+        <QuietButton__ButtonWrapper>
+          <StyledComponent
+            forwardedComponent={
+              Object {
+                "$$typeof": Symbol(react.forward_ref),
+                "attrs": Array [],
+                "componentStyle": ComponentStyle {
+                  "componentId": "QuietButton__ButtonWrapper-sc-1anctzy-1",
+                  "isStatic": false,
+                  "lastClassName": "c1",
+                  "rules": Array [
+                    "margin: 3px 16px 5px 16px;",
+                    "display: flex;",
+                    "flex-direction: row;",
+                    "justify-content: space-between;",
+                    "& > * {",
+                    "color: blue;",
+                    "}",
+                    "&:last-child {",
+                    "color: red;",
+                    "}",
+                  ],
+                },
+                "displayName": "QuietButton__ButtonWrapper",
+                "foldedComponentIds": Array [],
+                "render": [Function],
+                "styledComponentId": "QuietButton__ButtonWrapper-sc-1anctzy-1",
+                "target": "div",
+                "toString": [Function],
+                "warnTooManyClasses": [Function],
+                "withComponent": [Function],
+              }
+            }
+            forwardedRef={null}
+          >
+            <div
+              className="c1"
+            >
+              Words
+            </div>
+          </StyledComponent>
+        </QuietButton__ButtonWrapper>
+      </button>
     </StyledComponent>
   </QuietButton__StyledQuietButton>
 </QuietButton>

@@ -14,5 +14,5 @@ Quiet buttons are used sparingly and for an optional action. Mainly used in inte
 - The colour of the text and icon have to be the same
 
 ```jsx
-<QuietButton>Hello World!</QuietButton>
+<QuietButton>Hello</QuietButton>
 ```
