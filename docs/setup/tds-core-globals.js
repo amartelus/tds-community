@@ -14,6 +14,7 @@ import Text from '@tds/core-text'
 import UnorderedList from '@tds/core-unordered-list'
 import Image from '@tds/core-image'
 import Spinner from '@tds/core-spinner'
+import { Print } from '@tds/core-interactive-icon'
 
 Object.assign(global, {
   Box,
@@ -32,4 +33,5 @@ Object.assign(global, {
   Image,
   Button,
   Spinner,
+  Print,
 })
